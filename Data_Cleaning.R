@@ -1,6 +1,6 @@
 ##Chocolate Analysis
 library(readr) #to read the csv file
-chocolate <- read_csv("data/chocolate.csv")
+chocolate <- read_csv("data/raw_chocolate.csv")
 View(chocolate)
 
 #View column names
