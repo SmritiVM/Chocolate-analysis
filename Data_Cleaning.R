@@ -32,3 +32,6 @@ for (column in bool_columns){
   have <- paste("have_", column, sep = "")
   chocolate[column] <- replace(chocolate[column], chocolate[column] == have, 1)
 }
+
+#Writing the cleaned data into a new file
+write.csv(chocolate, "data/chocolate.csv")
