@@ -1,0 +1,7 @@
+Step 1: Viewing the data
+
+Step 2: Cleaning the data
+- Removing unnecessary columns (the serial number, ref column, and the fourth taste column)
+- Replace have_ingredient and have_not_ingredient with appropriate booleans
+
+Step 3: 
