@@ -36,15 +36,6 @@ onlytops = dplyr::filter(chocolate, company %in% top10s[,1])
 #2. Scatter plot of changes in the ratings of chocolate bars (2006-2020)
 
 # Import required libraries
-library(ggplot2)
-
-freq_Origin = as.data.frame(table(chocolate$company))
-colnames(freq_Origin) = c("Company", "Frequency")
-
-# The top 10 chocolate bar producers
-top10s = dplyr::arrange(freq_Origin, desc(Frequency))[1:10,]
-onlytops = dplyr::filter(chocolate, company %in% top10s[,1]) 
-
 ggplot(onlytops, aes(x = review_date, y = rating, color = company)) + 
   geom_point()  + facet_wrap(~ company, nrow = 2) + geom_line() +theme_bw() +
   scale_x_continuous(breaks = seq(2005,2021,2), guide = guide_axis(angle = 90))
