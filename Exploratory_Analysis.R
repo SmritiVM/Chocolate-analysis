@@ -17,6 +17,7 @@ summary(chocolate)
 library(dplyr)
 summary(select(chocolate, c(review_date, cocoa_percent, rating, counts_of_ingredients)))
 
+library(ggplot2)
 #First plot
 #1. Bar plot of the top 10 producers considering the number of ingredients used
 
