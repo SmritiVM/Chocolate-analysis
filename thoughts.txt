@@ -15,4 +15,5 @@ Step 4: Questions
 - See if ratings have changed over time for a particular chocolate (if rows are available)
 - Multiple regression
 - Hypothesis testing
+- 15 top tastes of chocolates
 - ???
