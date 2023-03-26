@@ -33,7 +33,7 @@ for (column in bool_columns){
   chocolate[column] <- replace(chocolate[column], chocolate[column] == have, 1)
 }
 
-colnames(chocolate)[10] <- "vanilla"
+colnames(chocolate)[11] <- "vanilla"
 
 #Writing the cleaned data into a new file
 write.csv(chocolate, "data/chocolate.csv")
