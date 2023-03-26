@@ -18,6 +18,15 @@ library(dplyr)
 summary(select(chocolate, c(review_date, cocoa_percent, rating, counts_of_ingredients)))
 
 library(ggplot2)
+
+#Selecting top 10 companies
+freq_Origin = as.data.frame(table(chocolate$company))
+colnames(freq_Origin) = c("Company", "Frequency")
+
+# The top 10 chocolate bar producers
+top10s = dplyr::arrange(freq_Origin, desc(Frequency))[1:10,]
+onlytops = dplyr::filter(chocolate, company %in% top10s[,1]) 
+
 #First plot
 #1. Bar plot of the top 10 producers considering the number of ingredients used
 
@@ -29,3 +38,5 @@ library(ggplot2)
 
 #Third plot
 #3. Violin plot of the distribution of ratings
+ggplot(onlytops, aes(x = company, y = rating)) + geom_violin() +
+  geom_boxplot(width=0.1, fill="white") +theme_bw()
