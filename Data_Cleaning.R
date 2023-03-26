@@ -9,7 +9,7 @@ column_names
 
 #Removing columns not being used
 library(dplyr)
-chocolate <- select(chocolate, -c(...1,ref,fourth_taste,specific_bean_origin_or_bar_name))
+chocolate <- select(chocolate, -c(...1,fourth_taste,specific_bean_origin_or_bar_name))
 
 chocolate <- data.frame(chocolate)
 
@@ -17,11 +17,11 @@ chocolate <- data.frame(chocolate)
 #Changing have/have not to 1/0
 
 chocolate = data.frame(chocolate)
-colnames(chocolate)[8] <- "bean"
-colnames(chocolate)[10] <- "vanila"
+colnames(chocolate)[9] <- "bean"
+colnames(chocolate)[11] <- "vanila"
 
 #Columns to be changed: 9 to 15
-bool_columns = colnames(chocolate[8:14])
+bool_columns = colnames(chocolate[9:15])
 bool_columns
 
 
