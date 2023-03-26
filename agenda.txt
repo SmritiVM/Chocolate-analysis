@@ -3,6 +3,6 @@ https://www.kaggle.com/datasets/soroushghaderi/chocolate-bar-2020?select=chocola
 
 Tasks:
 - Confirm dataset (done)  
-- Data cleaning (done)
+- Clean dataset (done)
 - Exploratory data analysis
 - Decide what questions we want to answer (like the questions on the kaggle dataset site, what our hypothesis could be, what plots we’d like to draw)
