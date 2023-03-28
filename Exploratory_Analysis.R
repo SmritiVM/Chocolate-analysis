@@ -30,7 +30,8 @@ onlytops = dplyr::filter(chocolate, company %in% top10s[,1])
 #First plot
 #1. Bar plot of the top 10 producers considering the number of ingredients used
 
-
+ggplot(onlytops, aes(x = company, fill = factor(counts_of_ingredients))) + geom_bar() +
+  theme_bw() + scale_fill_manual(values = c("2" = "#880E4F", "3" = "#FFF176","4" = "#64B5F6", "5" = "#7E57C2"))
 
 #Second plot
 #2. Scatter plot of changes in the ratings of chocolate bars (2006-2020)
