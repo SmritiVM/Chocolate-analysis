@@ -7,13 +7,15 @@ Step 2: Cleaning the data
 Step 3: Exploratory data analysis
 - Find summary statistics
 - Find the data types
-- Bar plot of top 10 producers considering ingredients used
-- Scatter plot of changes in the ratings of the chocolate bars
-- Violin plot of the distribution of ratings
+- Bar plot of top 10 producers considering ingredients used [✔][sruthi]
+- Scatter plot of changes in the ratings of the chocolate bars [✔][sankari]
+- Violin plot of the distribution of ratings [✔][smriti]
+- Top 10 of each column (company locations, bean origin, when were the max reviews conducted (year), top 10 first, seocnd and third taste) [][hitesh]
+- Find the (number of and) distinct values of each non-numeric column [][sankari]
+- Find number of 0s and 1s in each of the "ingredient" columns -> how many chocolates contain a particular ingredient [][sankari]
 
 Step 4: Questions
-- See if ratings have changed over time for a particular chocolate (if rows are available)
-- Multiple regression
-- Hypothesis testing
-- 15 top tastes of chocolates
-- ???
+- Multiple regression (model rating in terms of cocoa percent and count of ingredients) [][smriti]
+- Hypothesis testing (take top 10 companies producing chocolates as a sample and see if it's representative of the entire population) mean of the rating [][hitesh]
+- Hypothesis testing (take 2 countries, compare the average reviews) - check of one country produces objectively better chocolates [][sruthi]
+- Multiple correlation (salt, sugar, cocoa_butter, vanilla) [][sankari]
