@@ -2,8 +2,10 @@
 library(readr)
 chocolate <- read_csv("data/chocolate.csv")
 View(chocolate)
-
 chocolate <- data.frame(chocolate)
+
+#--------------------------------------------------
+#SUMMARY STATISTICS
 
 #Finding class of each column
 library(tibble)
@@ -14,9 +16,37 @@ View(column_statistics)
 
 summary(chocolate)
 
+#Finding summary statistics for numeric columns
 library(dplyr)
 summary(select(chocolate, c(review_date, cocoa_percent, rating, counts_of_ingredients)))
 
+
+#Finding distinct values for non numeric columns
+Distinct_Columns <- data.frame(matrix(nrow = 0, ncol = 2))
+colnames(Distinct_Columns) = c("Column", "No. of distinct entries")
+
+index <- 1;
+for (number in 1:19){
+  column <- column_statistics$column_names[number]
+  type <- column_statistics$column_types[number]
+  if (type == 'character'){
+    unique_values <- unique(na.omit(chocolate[column])) #unique values after omitting NA
+    distinct_count <- nrow(unique_values)
+    
+    #Adding, column and distinct count to a separate dataframe
+    Distinct_Columns[index,] <- list(column, distinct_count)
+    index <- index + 1;
+    
+    #Displaying first 5 unique values of category
+    first_5 <- head(unique_values, n = 5)
+    print(first_5[1])
+  }
+}
+
+
+#-------------------------------------------------
+
+#PLOTTING
 library(ggplot2)
 
 #Selecting top 10 companies
@@ -29,7 +59,6 @@ onlytops = dplyr::filter(chocolate, company %in% top10s[,1])
 
 #First plot
 #1. Bar plot of the top 10 producers considering the number of ingredients used
-
 ggplot(onlytops, aes(x = company, fill = factor(counts_of_ingredients))) + geom_bar() +
   theme_bw() + scale_fill_manual(values = c("2" = "#880E4F", "3" = "#FFF176","4" = "#64B5F6", "5" = "#7E57C2"))
 
