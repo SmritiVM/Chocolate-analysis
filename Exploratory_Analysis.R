@@ -50,3 +50,15 @@ ggplot(onlytops, aes(x = review_date, y = rating, color = company)) +
 #3. Violin plot of the distribution of ratings
 ggplot(onlytops, aes(x = company, y = rating)) + geom_violin() +
   geom_boxplot(width=0.1, fill="white") +theme_bw()
+
+
+# How many chocolates contain a particular ingredient?
+total_chocolates = nrow(chocolate)
+print(total_chocolates)
+
+ingredients = colnames(chocolate[10:16])
+for (ingredient in ingredients) {
+  chocolates_having_ingredient = sum(chocolate[ingredient] == 1)
+  percent_chocolates = as.character(formatC((chocolates_having_ingredient/total_chocolates) * 100, digits=2, format="f"))
+  cat(sprintf("%s percent of chocolates have %s in them\n", percent_chocolates, ingredient))
+}
