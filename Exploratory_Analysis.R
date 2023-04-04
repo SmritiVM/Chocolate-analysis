@@ -53,14 +53,14 @@ colnames(freq_Origin) = c("Company", "Frequency")
 top10s = dplyr::arrange(freq_Origin, desc(Frequency))[1:10,]
 onlytops = dplyr::filter(chocolate, company %in% top10s[,1]) 
 
-Rating_data <- select(onlytops, c(company, rating, cocoa_percent, counts_of_ingredients))
-Rating_data = Rating_data %>% group_by(company)  %>%
+Company_Rating_data <- select(onlytops, c(company, rating, cocoa_percent, counts_of_ingredients))
+Company_Rating_data = Company_Rating_data %>% group_by(company)  %>%
   summarise(avg_rating = mean(rating),
             avg_cocoa_percent = mean(cocoa_percent),
             avg_ingredient_count = round(mean(counts_of_ingredients)),
             .groups = 'drop')
 
-View(Rating_data)
+View(Company_Rating_data)
 #-------------------------------------------------
 
 #PLOTTING
