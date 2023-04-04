@@ -102,3 +102,18 @@ for (ingredient in ingredients) {
   percent_chocolates = as.character(formatC((chocolates_having_ingredient/total_chocolates) * 100, digits=2, format="f"))
   cat(sprintf("%s percent of chocolates have %s in them\n", percent_chocolates, ingredient))
 }
+
+#Top 10 of 
+#company_location
+sort(table(chocolate$company_location), decreasing=TRUE)[1:10]
+#country_of_bean_origin
+sort(table(chocolate$country_of_bean_origin), decreasing=TRUE)[1:10]
+#reviews conducted in each year
+sort(table(chocolate$review_date), decreasing=TRUE)[1:10]
+#first_taste
+sort(table(chocolate$first_taste), decreasing=TRUE)[1:10]
+#second_taste
+sort(table(chocolate$second_taste), decreasing=TRUE)[1:10]
+#third_taste
+sort(table(chocolate$third_taste), decreasing=TRUE)[1:10]
+
