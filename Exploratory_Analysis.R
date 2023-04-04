@@ -43,11 +43,7 @@ for (number in 1:19){
   }
 }
 
-
-#-------------------------------------------------
-
-#PLOTTING
-library(ggplot2)
+#Finding average rating, cocoa percent and count of ingredients for top 10 companies
 
 #Selecting top 10 companies
 freq_Origin = as.data.frame(table(chocolate$company))
@@ -56,6 +52,21 @@ colnames(freq_Origin) = c("Company", "Frequency")
 # The top 10 chocolate bar producers
 top10s = dplyr::arrange(freq_Origin, desc(Frequency))[1:10,]
 onlytops = dplyr::filter(chocolate, company %in% top10s[,1]) 
+
+Rating_data <- select(onlytops, c(company, rating, cocoa_percent, counts_of_ingredients))
+Rating_data = Rating_data %>% group_by(company)  %>%
+  summarise(avg_rating = mean(rating),
+            avg_cocoa_percent = mean(cocoa_percent),
+            avg_ingredient_count = round(mean(counts_of_ingredients)),
+            .groups = 'drop')
+
+View(Rating_data)
+#-------------------------------------------------
+
+#PLOTTING
+library(ggplot2)
+
+
 
 #First plot
 #1. Bar plot of the top 10 producers considering the number of ingredients used

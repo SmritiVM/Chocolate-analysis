@@ -24,7 +24,10 @@ RegModel
 summary(RegModel)
 
 library(scatterplot3d)
-scatterplot3d(Rating_data$avg_rating ~ Rating_data$avg_cocoa_percent + Rating_data$avg_ingredient_count)
+scatterplot3d(Rating_data$avg_rating ~ Rating_data$avg_cocoa_percent + Rating_data$avg_ingredient_count,
+              xlab = "Cocoa percent",
+              ylab = "Ingredient Count",
+              zlab = "Rating")
 
 #2. Hypothesis testing (take top 10 companies producing chocolates as a sample and see if it's representative of the entire population) mean of the rating
 
