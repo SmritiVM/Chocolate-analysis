@@ -18,4 +18,3 @@ Step 4: Questions
 - Multiple regression (model rating in terms of cocoa percent and count of ingredients) [✅][smriti]
 - Hypothesis testing (take top 10 companies producing chocolates as a sample and see if it's representative of the entire population) mean of the rating [❌][hitesh]
 - Hypothesis testing (take 2 countries, compare the average reviews) - check of one country produces objectively better chocolates [❌][sruthi]
-- Multiple correlation (salt, sugar, cocoa_butter, vanilla) [❌][sankari]
