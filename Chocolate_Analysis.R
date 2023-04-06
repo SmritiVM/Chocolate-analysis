@@ -9,6 +9,7 @@ onlytops = dplyr::filter(chocolate, company %in% top10s[,1])
 
 View(onlytops)
 
+
 #1. Multiple regression (model rating in terms of cocoa percent and count of ingredients)
 library(dplyr)
 Rating_data <- select(onlytops, c(company, rating, cocoa_percent, counts_of_ingredients))
