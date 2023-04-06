@@ -15,6 +15,7 @@ Step 3: Exploratory data analysis
 - Find number of 0s and 1s in each of the "ingredient" columns -> how many chocolates contain a particular ingredient [✅][sankari]
 
 Step 4: Questions
+- Most common first taste and compare rating with non commons [❌][sankari]
 - Multiple regression (model rating in terms of cocoa percent and count of ingredients) [✅][smriti]
 - Hypothesis testing (take top 10 companies producing chocolates as a sample and see if it's representative of the entire population) mean of the rating [❌][hitesh]
 - Hypothesis testing (take 2 countries, compare the average reviews) - check of one country produces objectively better chocolates [❌][sruthi]
