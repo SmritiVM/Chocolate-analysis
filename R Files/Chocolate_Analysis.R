@@ -35,7 +35,28 @@ scatterplot3d(Rating_data$avg_rating ~ Rating_data$avg_cocoa_percent + Rating_da
 
 
 #3. Hypothesis testing (take 2 countries, compare the average reviews) - check of one country produces objectively better chocolates 
+ratingmeans=aggregate(onlytops$rating, list(onlytops$company), FUN=mean)
+ratingmeans
+P1=(ratingmeans$Group.1[1])
+m1=ratingmeans$x[1]
+P2=(ratingmeans$Group.1[2])
+m2=ratingmeans$x[2]
+n1=sum(onlytops$company==P1)
+n2=sum(onlytops$company==P2)
+n2
+ratingsd=aggregate(onlytops$rating, list(onlytops$company), FUN=sd)
+sd1=ratingsd$x[1]
+sd2=ratingsd$x[2]
 
+#t test for 2 means
+#H0 : Both companies have the same quality/popularity as the other
+#H1 : The companies are not on the same level of quality/popularity
+# testing at 5% level of significance
+t= (m1-m2)/sqrt(((sd1*sd1)/n1)+((sd2*sd2)/n2))
+t
+cv=qt(0.975,(n1+n2-2))
+cv
+if(cv <=t){print("Accept Ho")} else{print("Reject Ho")}
 
 
 
