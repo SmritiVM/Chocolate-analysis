@@ -9,8 +9,32 @@ onlytops = dplyr::filter(chocolate, company %in% top10s[,1])
 
 View(onlytops)
 
+#1. Find most common first taste and compare rating with other tastes
 
-#1. Multiple regression (model rating in terms of cocoa percent and count of ingredients)
+# find most common first taste
+common_taste = names(which.max(table(chocolate$first_taste)))
+
+# find the avg ratings
+average_rating = 0
+average_count = nrow(chocolate["rating"])
+common_taste_rating = 0
+common_taste_rating_count = 0
+
+taste = chocolate["first_taste"]
+rating = chocolate["rating"]
+
+for (index in 1:nrow(chocolate["rating"])) {
+  if (taste[[1]][[index]] == common_taste) {
+    common_taste_rating = common_taste_rating + rating[[1]][[index]]
+    common_taste_rating_count = common_taste_rating_count + 1
+  }
+  average_rating = average_rating + rating[[1]][[index]]
+}
+
+message("Average rating of chocolates is: ", average_rating / average_count)
+message("Rating for chocolates with most popular taste is: ", common_taste_rating / common_taste_rating_count)
+
+#2. Multiple regression (model rating in terms of cocoa percent and count of ingredients)
 library(dplyr)
 Rating_data <- select(onlytops, c(company, rating, cocoa_percent, counts_of_ingredients))
 Rating_data = Rating_data %>% group_by(company)  %>%
@@ -30,11 +54,11 @@ scatterplot3d(Rating_data$avg_rating ~ Rating_data$avg_cocoa_percent + Rating_da
               ylab = "Ingredient Count",
               zlab = "Rating")
 
-#2. Hypothesis testing (take top 10 companies producing chocolates as a sample and see if it's representative of the entire population) mean of the rating
+#3. Hypothesis testing (take top 10 companies producing chocolates as a sample and see if it's representative of the entire population) mean of the rating
 
 
 
-#3. Hypothesis testing (take 2 countries, compare the average reviews) - check of one country produces objectively better chocolates 
+#4. Hypothesis testing (take 2 countries, compare the average reviews) - check of one country produces objectively better chocolates 
 ratingmeans=aggregate(onlytops$rating, list(onlytops$company), FUN=mean)
 ratingmeans
 P1=(ratingmeans$Group.1[1])
@@ -58,6 +82,3 @@ cv=qt(0.975,(n1+n2-2))
 cv
 if(cv <=t){print("Accept Ho")} else{print("Reject Ho")}
 
-
-
-#4. Multiple correlation (salt, sugar, cocoa_butter, vanilla) 
