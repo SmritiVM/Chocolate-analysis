@@ -1,3 +1,9 @@
+#Creating data frame
+library(readr)
+chocolate <- read_csv("data/chocolate.csv")
+View(chocolate)
+chocolate <- data.frame(chocolate)
+
 #Questions
 #Selecting top 10 companies
 freq_Origin = as.data.frame(table(chocolate$company))
